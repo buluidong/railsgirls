@@ -1,0 +1,42 @@
+<%= form_for(@idea) do |f| %>
+<div class="box">
+  <% if @idea.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@idea.errors.count, "error") %> prohibited this idea from being saved:</h2>
+
+      <ul>
+      <% @idea.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+      <p>
+        <div class="">
+          <%= f.label :name %><br>
+          <%= f.text_field :name %>
+        </div> 
+      </p>
+      <p>
+        <div class="">
+          <%= f.label :description %><br>
+          <%= f.text_area :description %>
+        </div>
+      </p>
+ 
+    <p>
+      <div class="">
+        <%= f.label :picture %><br>
+        <%= f.file_field :picture %>
+      </div>
+    </p>
+
+    <p>
+      <div class="">
+        <%= f.submit %>
+      </div>
+    </p>
+</div>  
+<% end %>
+
